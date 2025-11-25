@@ -1,0 +1,47 @@
+/* Importamos las fuentes de Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Antonio:wght@100;300&family=Inter:wght@300&display=swap');
+
+:root {
+  --bg-black: #050505;  /* Negro casi puro */
+  --text-white: #ffffff;
+  --text-gray: #888888;
+  --accent-gray: #222222;
+}
+
+body {
+  background-color: var(--bg-black);
+  color: var(--text-white);
+  font-family: 'Inter', sans-serif; /* Fuente para párrafos */
+}
+
+/* Títulos finos y alargados */
+h1, h2, h3, .navbar-brand {
+  font-family: 'Antonio', sans-serif;
+  font-weight: 200 !important; /* Letra fina */
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* Ajustes para las tarjetas de Bootstrap */
+.card-custom {
+  background-color: transparent;
+  border: 1px solid #333;
+  color: white;
+  transition: all 0.3s ease;
+  border-radius: 0; /* Bordes cuadrados para estilo brutalista/sobrio */
+}
+
+.card-custom:hover {
+  border-color: white;
+  transform: translateY(-5px);
+  background-color: #111;
+}
+
+/* Efecto para enlaces */
+.nav-link {
+  color: var(--text-gray) !important;
+  font-size: 0.9rem;
+}
+.nav-link:hover {
+  color: white !important;
+}
