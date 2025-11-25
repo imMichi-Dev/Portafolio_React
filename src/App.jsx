@@ -1,6 +1,6 @@
-import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'; // Importamos Bootstrap
-import './App.css'; // Nuestros estilos personalizados
+import './App.css';
+import { FaTwitter, FaGithub, FaLinkedinIn, FaEnvelope } from "react-icons/fa"; // Nuestros estilos personalizados
 
 function App() {
 
@@ -100,18 +100,79 @@ function App() {
         </div>
       </section>
 
-      {/* --- CONTACT SECTION --- */}
-      <section id="contact" className="py-5 border-top border-dark text-center min-vh-50 d-flex flex-column justify-content-center">
-        <div className="container">
-          <h2 className="mb-4">Contactame</h2>
-          <a href="mailto:mj.garcest@gmail.com" className="text-white text-decoration-none display-6" style={{ fontFamily: 'Antonio', borderBottom: '1px white' }}>
-            mj.garcest@gmail.com
-          </a>
+      {/* --- CONTACT SECTION (Dos Columnas) --- */}
+      <section id="contact" className="py-5 border-top border-dark">
+        <div className="container py-5">
           
-          <div className="mt-5 d-flex justify-content-center gap-4 text-secondary">
-            <a href="https://www.linkedin.com/feed/" className="text-reset text-decoration-none">LINKEDIN</a>
-            <a href="https://github.com/imMichi-Dev" className="text-reset text-decoration-none">GITHUB</a>
+          {/* Usamos una "tarjeta" oscura para contener todo */}
+          <div className="contact-card">
+            <div className="row gy-5"> {/* gy-5 da espacio vertical en móviles */}
+              
+              {/* --- COLUMNA IZQUIERDA: INFO --- */}
+              <div className="col-lg-5 pe-lg-5"> {/* pe-lg-5 da espacio a la derecha en pantallas grandes */}
+                <h2 className="display-5 mb-4">Contáctame</h2>
+                <p className="text-secondary mb-5 lead" style={{ fontSize: '1rem' }}>
+                  Estoy disponible para trabajos freelance, colaboraciones o simplemente para charlar sobre código. Si tienes una idea interesante, ¡hablemos!
+                </p>
+
+                <ul className="list-unstyled social-list">
+                  <li>
+                    <a href="https://github.com/imMichi-Dev" className='text-reset text-decoration-none'><FaGithub className="social-icon" /> github.com/imMichi-Dev</a>
+                  </li>
+                  <li>
+                    <a href="https://www.linkedin.com/feed/" className='text-reset text-decoration-none'><FaLinkedinIn className="social-icon" /> maria jose garces</a>
+                  </li>
+                  <li>
+                    <a href="mailto:mj.garcest@gmail.com" className="text-reset text-decoration-none"><FaEnvelope className="social-icon " /> mj.garcest@gmail.com</a>
+                  </li>
+                </ul>
+              </div>
+
+              {/* --- COLUMNA DERECHA: FORMULARIO --- */}
+              <div className="col-lg-7">
+                 <h2 className="display-5 mb-4">Escríbeme</h2>
+                 <form 
+                    action="https://formsubmit.co/mj.garcest@gmail.com" 
+                    method="POST"
+                  >
+                   
+                   {/* Configuración para que no salga captcha y vuelva a tu página al enviar */}
+                   <input type="hidden" name="_next" value="http://localhost:5173/" /> {/* Cambia esto por tu URL real cuando la subas */}
+                   <input type="hidden" name="_captcha" value="false" />
+                   <input type="hidden" name="_subject" value="¡Nuevo mensaje de tu Portafolio!" />
+
+                   <div className="row mb-3">
+                     <div className="col-md-6 mb-3 mb-md-0">
+                       <label className="text-secondary small mb-1">Nombre *</label>
+                       {/* El atributo 'name' es OBLIGATORIO para saber qué te escribieron */}
+                       <input type="text" name="nombre" className="form-control form-control-dark p-3" placeholder="p. ej.: Ada" required />
+                     </div>
+                     <div className="col-md-6">
+                      <label className="text-secondary small mb-1">Apellido</label>
+                       <input type="text" name="apellido" className="form-control form-control-dark p-3" placeholder="p. ej.: Lovelace" />
+                     </div>
+                   </div>
+
+                   <div className="mb-3">
+                     <label className="text-secondary small mb-1">Email *</label>
+                     <input type="email" name="email" className="form-control form-control-dark p-3" placeholder="tu@email.com" required />
+                   </div>
+
+                   <div className="mb-4">
+                     <label className="text-secondary small mb-1">Mensaje *</label>
+                     <textarea name="mensaje" className="form-control form-control-dark p-3" rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
+                   </div>
+
+                   <button type="submit" className="btn btn-light rounded-0 px-5 py-3" style={{ letterSpacing: '2px', fontWeight: 'bold' }}>
+                     ENVIAR MENSAJE
+                   </button>
+
+                 </form>
+              </div>
+
+            </div>
           </div>
+
         </div>
       </section>
 

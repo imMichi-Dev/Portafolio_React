@@ -45,3 +45,46 @@ h1, h2, h3, .navbar-brand {
 .nav-link:hover {
   color: white !important;
 }
+
+/* Contenedor tipo tarjeta para la sección de contacto */
+.contact-card {
+  background-color: #0a0a0a; /* Un poco más claro que el fondo negro puro */
+  border: 1px solid #222;
+  padding: 40px;
+}
+
+/* Estilo para los inputs (campos de texto) en modo oscuro */
+.form-control-dark {
+  background-color: #151515;
+  border: 1px solid #333;
+  color: var(--text-white);
+  border-radius: 0; /* Bordes cuadrados para mantener la sobriedad */
+}
+
+/* Cuando haces clic en el input */
+.form-control-dark:focus {
+  background-color: #000;
+  border-color: var(--text-white);
+  color: var(--text-white);
+  box-shadow: none; /* Quitamos el brillo azul de Bootstrap */
+}
+
+/* Color del placeholder (el texto de ejemplo "p. ej.: Ada") */
+.form-control-dark::placeholder {
+  color: #555;
+}
+
+/* Estilo para la lista de iconos sociales */
+.social-list li {
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  color: var(--text-gray);
+  font-size: 0.95rem;
+}
+
+.social-icon {
+  font-size: 1.2rem;
+  margin-right: 15px;
+  color: var(--text-white);
+}
