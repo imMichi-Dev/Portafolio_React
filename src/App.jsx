@@ -6,16 +6,14 @@ function App() {
 
   // Tus 7 proyectos. El primero (id: 1) será el destacado.
   const projects = [
-    { id: 1, title: "Películas-React", tech: "React - Node.js", desc: "Películas-React.", featured: true, link: "https://react-movies-atsc.vercel.app/recientes" },
-    { id: 2, title: "Dashboard Financiero", tech: "Vue.js - Firebase", desc: "Visualización de datos en tiempo real.", featured: false },
-    { id: 3, title: "App del Clima", tech: "JS - API Rest", desc: "Consumo de API OpenWeather.", featured: false },
-    { id: 4, title: "To-Do List", tech: "React - LocalStorage", desc: "Gestor de tareas minimalista.", featured: false },
-    { id: 5, title: "Landing Page", tech: "HTML - SASS", desc: "Página corporativa responsive.", featured: false },
-    { id: 6, title: "Calculadora", tech: "JavaScript", desc: "Lógica matemática básica.", featured: false },
-    { id: 7, title: "Juego de Memoria", tech: "React Hooks", desc: "Juego de cartas interactivo.", featured: false },
+    { id: 1, title: "Editor de memes", tech: "HTML5 - JS - Tailwind", desc: "Proyecto de editor para generar memes. Esta es una plicación con la que podrás manipular el texto y la imagen de tu meme para modificar dinámicamente su contenido y sus propiedades", featured: false, link_page: "https://immichi-dev.github.io/GeneradorDeMemes-19/", link_github: "https://github.com/imMichi-Dev/GeneradorDeMemes-19" },
+    { id: 2, title: "AhorrADAs", tech: "JS - LocalStorage - Tailwind", desc: "Proyecto de aplicación que permite llevar un registro de los gastos realizados y de los ingresos obtenidos.", featured: false, link_page: "https://immichi-dev.github.io/Ahorradas23/", link_github: "https://github.com/imMichi-Dev/Ahorradas23"},
+    { id: 3, title: "Buscador de Cómics", tech: "React - API Rest - JS - Tailwind", desc: "Proyecto de aplicación que permite listar cómics y personajes de comics, y obtener información sobre los mismos.", featured: false, link_page: "https://immichi-dev.github.io/ComicsTP/", link_github: "https://github.com/imMichi-Dev/ComicsTP" },
+    { id: 4, title: "Todo List React", tech: "React - JS - Bootstrap", desc: "Proyecto de aplicación de React que permite hacer una lista de tareas, marcar las tareas completadas ✔️ y poder eliminar 🗑 aquellas que ya no quieras o necesites", featured: false },
+    { id: 5, title: "Películas-React", tech: "React - JS - Bootstrap", desc: "proyecto de aplicación que permite conectarse a una API de películas, los estrenos, populares y mejor puntadas.", featured: true, link_page: "https://react-movies-atsc.vercel.app/recientes", link_github: "https://github.com/imMichi-Dev/React-Movies"},
   ];
 
-  const skills = ["JavaScript", "React", "Bootstrap", "Python", "Git/GitHub", "SQL", "Node.js"];
+  const skills = ["JavaScript", "React", "Bootstrap", "Tailwind", "Bulma", "Git/GitHub", "Node.js"];
 
   return (
     <div className="App">
@@ -36,9 +34,9 @@ function App() {
       <header className="d-flex align-items-center min-vh-100 container">
         <div className="row w-100">
           <div className="col-lg-8">
-            <span className="text-muted fs-5 d-block mb-2">Holi, bienvenido/a.</span>
+            <span className="fs-5 d-block mb-2">Holi, bienvenido/a.</span>
             <h1 className="display-1 mb-3" style={{ fontSize: '5rem' }}>
-              MI NOMBRE<br />ES MAJO.
+              MI NOMBRE<br />ES MARIA JOSE.
             </h1>
             <p className="lead text-secondary" style={{ maxWidth: '600px' }}>
               Desarrolladora de Software creativa, enfocada en diseño limpio y código eficiente.
@@ -63,24 +61,37 @@ function App() {
       </section>
 
       {/* --- PORTFOLIO SECTION (Grid de 7) --- */}
+
       <section id="portfolio" className="py-5 border-top border-dark">
         <div className="container py-5">
-          <h2 className="mb-5 display-5">Proyectos Seleccionados</h2>
+          <h2 className="mb-5 display-5 text-center">Mis Proyectos</h2> 
           
-          <div className="row g-4">
+          {/* justify-content-center es la clave aquí para centrar los impares */}
+          <div className="row g-4 justify-content-center">
             {projects.map((proj) => (
-              /* Lógica: Si es "featured" usa col-12, si no usa col-md-4 (3 columnas) */
-              <div key={proj.id} className={proj.featured ? "col-12" : "col-md-4 col-sm-6"} onClick={()=>location.href=proj.link}>
-                <div className="card h-100 card-custom p-4 d-flex flex-column justify-content-end" style={{ minHeight: proj.featured ? '400px' : '250px' }}>
-                  <div className="mt-auto">
+              <div key={proj.id} className="col-lg-4 col-md-6 col-sm-12">
+                {/* Altura fija min-height para que se vean uniformes */}
+                <div className="card h-100 card-custom p-4 d-flex flex-column" style={{ minHeight: '300px' }} onClick={(e)=>{e.stopPropagation(); location.href=proj.link_page}}>
+                  
+                  {/* Número del proyecto arriba a la derecha */}
+                  <div className="d-flex justify-content-between align-items-start mb-3">
+                     {/* Icono de carpeta decorativo (opcional) */}
                     <span className="text-secondary" style={{ fontFamily: 'Antonio', fontSize: '1.5rem' }}>
                       {proj.id < 10 ? `0${proj.id}` : proj.id}
                     </span>
-                    <h3 className="mt-2">{proj.title}</h3>
-                    <p className="text-muted small mb-0">{proj.tech}</p>
-                    {/* Solo mostramos descripción larga en el destacado para mantener limpieza */}
-                    {proj.featured && <p className="mt-2 text-light">{proj.desc}</p>}
                   </div>
+
+                  <h3 className="h4 mt-2">{proj.title}</h3>
+                  <p className=" small" style={{ opacity: 0.4 }}>{proj.tech}</p>
+                  <p className="mt-3 text-light small" style={{ opacity: 0.8 }}>
+                    {proj.desc}
+                  </p>
+                  
+                  {/* Botón sutil de "Ver más" */}
+                  <div className="mt-auto pt-3">
+                    <a href={proj.link_github} className="text-white text-decoration-none border-bottom pb-1" style={{ fontSize: '0.8rem' }}>VER CÓDIGO &rarr;</a>
+                  </div>
+
                 </div>
               </div>
             ))}
@@ -98,14 +109,13 @@ function App() {
           </a>
           
           <div className="mt-5 d-flex justify-content-center gap-4 text-secondary">
-            <a href="#" className="text-reset text-decoration-none">LINKEDIN</a>
-            <a href="#" className="text-reset text-decoration-none">GITHUB</a>
-            <a href="#" className="text-reset text-decoration-none">INSTAGRAM</a>
+            <a href="https://www.linkedin.com/feed/" className="text-reset text-decoration-none">LINKEDIN</a>
+            <a href="https://github.com/imMichi-Dev" className="text-reset text-decoration-none">GITHUB</a>
           </div>
         </div>
       </section>
 
-      <footer className="text-center py-4 text-muted small border-top border-dark">
+      <footer className="text-center py-4 small border-top border-dark" style={{ opacity: 0.4 }}>
         &copy; 2025 Majo Portafolio. Hecho con React & Bootstrap.
       </footer>
 
