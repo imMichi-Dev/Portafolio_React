@@ -67,6 +67,8 @@ Soy una desarrolladora apasionada por el código limpio y el diseño intuitivo. 
 ![GIT](https://img.shields.io/badge/GIT-E44C30?style=for-the-badge&logo=git&logoColor=white)
 ![VisualStudioCode](https://img.shields.io/badge/VSCode-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white)
 
+[PARA ACCEDER HAZ CLICK AQUI.](https://portafolio-react-nu-self.vercel.app/)
+
 ## Contacto: 📬
 ¿Te interesa mi trabajo o quieres colaborar? ¡Contáctame!
 
