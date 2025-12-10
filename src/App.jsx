@@ -8,16 +8,15 @@ function App() {
   const projects = [
     { id: 1, title: "Editor de memes", tech: "HTML5 - JS - Tailwind", desc: "Proyecto de editor para generar memes. Esta es una plicación con la que podrás manipular el texto y la imagen de tu meme para modificar dinámicamente su contenido y sus propiedades", featured: false, link_page: "https://immichi-dev.github.io/GeneradorDeMemes-19/", link_github: "https://github.com/imMichi-Dev/GeneradorDeMemes-19" },
     { id: 2, title: "AhorrADAs", tech: "JS - LocalStorage - Tailwind", desc: "Proyecto de aplicación que permite llevar un registro de los gastos realizados y de los ingresos obtenidos.", featured: false, link_page: "https://immichi-dev.github.io/Ahorradas23/", link_github: "https://github.com/imMichi-Dev/Ahorradas23"},
-    { id: 3, title: "Buscador de Cómics", tech: "React - API Rest - JS - Tailwind", desc: "Proyecto de aplicación que permite listar cómics y personajes de comics, y obtener información sobre los mismos.", featured: false, link_page: "https://immichi-dev.github.io/ComicsTP/", link_github: "https://github.com/imMichi-Dev/ComicsTP" },
+    { id: 3, title: "Rick and Morty database", tech: "React - API Rest - JS - Tailwind", desc: "Proyecto de aplicación que permite listar episodios y personajes de Rick y Morty, y obtener información sobre los mismos.", featured: false, link_page: "https://immichi-dev.github.io/RickYmortyTP/", link_github: "https://github.com/imMichi-Dev/RickYmortyTP" },
     { id: 4, title: "Todo List React", tech: "React - JS - Bootstrap", desc: "Proyecto de aplicación de React que permite hacer una lista de tareas, marcar las tareas completadas ✔️ y poder eliminar 🗑 aquellas que ya no quieras o necesites", featured: false },
-    { id: 5, title: "Películas-React", tech: "React - JS - Bootstrap", desc: "proyecto de aplicación que permite conectarse a una API de películas, los estrenos, populares y mejor puntadas.", featured: true, link_page: "https://react-movies-atsc.vercel.app/recientes", link_github: "https://github.com/imMichi-Dev/React-Movies"},
+    { id: 5, title: "Películas-React", tech: "React - API Rest - JS - Bootstrap", desc: "proyecto de aplicación que permite conectarse a una API de películas, los estrenos, populares y mejor puntadas.", featured: true, link_page: "https://react-movies-atsc.vercel.app/recientes", link_github: "https://github.com/imMichi-Dev/React-Movies"},
   ];
 
   const skills = ["JavaScript", "React", "Bootstrap", "Tailwind", "Bulma", "Git/GitHub", "Node.js"];
 
   return (
     <div className="App">
-      
       {/* --- NAVBAR --- */}
       <nav className="navbar navbar-expand-lg fixed-top" style={{ backgroundColor: 'rgba(5,5,5,0.9)' }}>
         <div className="container">
@@ -29,7 +28,6 @@ function App() {
           </div>
         </div>
       </nav>
-
       {/* --- HERO SECTION --- */}
       <header className="d-flex align-items-center min-vh-100 container">
         <div className="row w-100">
@@ -45,7 +43,6 @@ function App() {
           </div>
         </div>
       </header>
-
       {/* --- SKILLS SECTION --- */}
       <section id="skills" className="py-5 border-top border-dark">
         <div className="container py-5">
@@ -59,47 +56,32 @@ function App() {
           </div>
         </div>
       </section>
-
-      {/* --- PORTFOLIO SECTION (Grid de 7) --- */}
-
+      {/* --- PORTFOLIO SECTION --- */}
       <section id="portfolio" className="py-5 border-top border-dark">
         <div className="container py-5">
           <h2 className="mb-5 display-5 text-center">Mis Proyectos</h2> 
-          
-          {/* justify-content-center es la clave aquí para centrar los impares */}
           <div className="row g-4 justify-content-center">
             {projects.map((proj) => (
               <div key={proj.id} className="col-lg-4 col-md-6 col-sm-12">
-                {/* Altura fija min-height para que se vean uniformes */}
                 <div className="card h-100 card-custom p-4 d-flex flex-column" style={{ minHeight: '300px' }} onClick={(e)=>{e.stopPropagation(); location.href=proj.link_page}}>
-                  
-                  {/* Número del proyecto arriba a la derecha */}
                   <div className="d-flex justify-content-between align-items-start mb-3">
-                     {/* Icono de carpeta decorativo (opcional) */}
                     <span className="text-secondary" style={{ fontFamily: 'Antonio', fontSize: '1.5rem' }}>
-                      {proj.id < 10 ? `0${proj.id}` : proj.id}
                     </span>
                   </div>
-
                   <h3 className="h4 mt-2">{proj.title}</h3>
                   <p className=" small" style={{ opacity: 0.4 }}>{proj.tech}</p>
                   <p className="mt-3 text-light small" style={{ opacity: 0.8 }}>
                     {proj.desc}
                   </p>
-                  
-                  {/* Botón sutil de "Ver más" */}
                   <div className="mt-auto pt-3">
                     <a href={proj.link_github} className="text-white text-decoration-none border-bottom pb-1" style={{ fontSize: '0.8rem' }}>VER CÓDIGO &rarr;</a>
                   </div>
-
                 </div>
               </div>
             ))}
           </div>
-
         </div>
       </section>
-
       {/* --- CONTACT SECTION (Dos Columnas) --- */}
       <section id="contact" className="py-5 border-top border-dark">
         <div className="container py-5">
