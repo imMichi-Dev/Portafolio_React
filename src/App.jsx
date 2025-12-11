@@ -32,13 +32,13 @@ function App() {
       link_page: "https://immichi-dev.github.io/RickYmortyTP/",
       link_github: "https://github.com/imMichi-Dev/RickYmortyTP",
     },
-    {
-      id: 4,
-      title: "Todo List React",
-      tech: "React - JS - Bootstrap",
-      desc: "Proyecto de aplicación de React que permite hacer una lista de tareas, marcar las tareas completadas ✔️ y poder eliminar 🗑 aquellas que ya no quieras o necesites",
-      featured: false,
-    },
+    // {
+    //   id: 4,
+    //   title: "Todo List React",
+    //   tech: "React - JS - Bootstrap",
+    //   desc: "Proyecto de aplicación de React que permite hacer una lista de tareas, marcar las tareas completadas ✔️ y poder eliminar 🗑 aquellas que ya no quieras o necesites",
+    //   featured: false,
+    // },
     {
       id: 5,
       title: "Películas-React",
@@ -221,7 +221,6 @@ function App() {
                     name="_next"
                     value="http://localhost:5173/"
                   />{" "}
-                  {/* Cambia esto por tu URL real cuando la subas */}
                   <input type="hidden" name="_captcha" value="false" />
                   <input
                     type="hidden"
